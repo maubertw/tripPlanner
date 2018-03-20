@@ -1,4 +1,5 @@
 //console.log("Hello from JavaScript");
+const buildMarker = require('./marker');
 
 
 const mapboxgl = require("mapbox-gl");
@@ -13,6 +14,12 @@ const map = new mapboxgl.Map({
 });
 
 let markerElement = document.createElement("div");
+markerElement.style.width = "32px";
+markerElement.style.height = "39px";
+markerElement.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
+
 
 let flag = new mapboxgl.Marker(markerElement).setLngLat([-87.6354, 41.8885]).addTo(map);
 
+const marker = buildMarker("activities", [-74.009151, 40.705086]); // or [-87.6354, 41.8885]
+marker.addTo(map);
